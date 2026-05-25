@@ -14,19 +14,19 @@
      * script in index.html replays the stored values before paint.
      */
 
-    /* --- Light variants --- */
-    --accent-about-light: 23 122 68;
-    --accent-section-light: 5 150 105;
-    --tint-section-light: 220 240 234;
-    --surface-light: 246 250 248;
-    --sidebar-light: 220 235 227;
+    /* --- Light variants (default = "Pacific" palette) --- */
+    --accent-about-light: 30 64 175;
+    --accent-section-light: 14 165 233;
+    --tint-section-light: 221 242 252;
+    --surface-light: 246 247 252;
+    --sidebar-light: 221 226 243;
 
     /* --- Dark variants --- */
-    --accent-about-dark: 74 222 128;
-    --accent-section-dark: 52 211 153;
-    --tint-section-dark: 28 49 38;
-    --surface-dark: 17 24 22;
-    --sidebar-dark: 29 38 28;
+    --accent-about-dark: 96 165 250;
+    --accent-section-dark: 125 211 252;
+    --tint-section-dark: 39 49 53;
+    --surface-dark: 18 22 28;
+    --sidebar-dark: 30 33 39;
 
     /* --- Active vars (what components read) --- */
     --accent-about: var(--accent-about-light);

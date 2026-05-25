@@ -52,7 +52,7 @@ export const palettes: readonly Palette[] = [
   },
 ];
 
-export const DEFAULT_PALETTE_ID = "citrus";
+export const DEFAULT_PALETTE_ID = "pacific";
 
 export function findPalette(id: string | undefined | null): Palette {
   if (id) {

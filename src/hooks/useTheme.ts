@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 
 export type Theme = "light" | "dark";
-const STORAGE_KEY = "theme";
+// :v2 bumps storage so stale stored "dark"/"light" choices reset and the
+// theme falls back to the browser's prefers-color-scheme on next visit.
+const STORAGE_KEY = "theme:v2";
 
 function getStored(): Theme | null {
   const value = localStorage.getItem(STORAGE_KEY);

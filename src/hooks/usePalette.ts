@@ -2,8 +2,10 @@ import { useCallback, useEffect, useSyncExternalStore } from "react";
 import { DEFAULT_PALETTE_ID, findPalette, palettes } from "../data/palettes";
 import type { Palette } from "../data/palettes";
 
-const ID_KEY = "palette";
-const VARS_KEY = "palette-vars";
+// :v2 prefix bumps storage when palette defaults change so returning visitors
+// land on the new default instead of a stale stored choice.
+const ID_KEY = "palette:v2";
+const VARS_KEY = "palette-vars:v2";
 const EVENT_NAME = "palette-change";
 
 type Rgb = { r: number; g: number; b: number };

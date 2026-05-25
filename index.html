@@ -22,13 +22,13 @@
       (function () {
         var root = document.documentElement;
         try {
-          var stored = localStorage.getItem("theme");
+          var stored = localStorage.getItem("theme:v2");
           var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
           var theme = stored === "light" || stored === "dark" ? stored : prefersDark ? "dark" : "light";
           if (theme === "dark") root.classList.add("dark");
         } catch (e) {}
         try {
-          var paletteVars = localStorage.getItem("palette-vars");
+          var paletteVars = localStorage.getItem("palette-vars:v2");
           if (paletteVars) {
             var parsed = JSON.parse(paletteVars);
             for (var key in parsed) {
