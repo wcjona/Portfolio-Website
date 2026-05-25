@@ -1,0 +1,28 @@
+/*
+ * Loaded after Tailwind (see src/main.tsx) so rules here win over inline
+ * utilities. Use for "tunable" values on pf-* hooks (sizes, positions,
+ * typography). Keep layout/responsive/state classes in JSX.
+ */
+
+/* --- Hero --------------------------------------------------------------- */
+
+/*
+ * .pf-hero-name is fixed at top: 50vh. Position the greeting and subtitle
+ * symmetrically around 50vh to keep matching gaps from the headline.
+ */
+
+.pf-hero-greeting {
+  @apply text-lg font-medium sm:text-xl;
+  top: 40vh;
+}
+
+.pf-hero-subtitle {
+  @apply text-2xl font-normal sm:text-3xl;
+  top: 60vh;
+}
+
+/* --- Mobile hero -------------------------------------------------------- */
+
+.pf-mobile-hero-greeting {
+  @apply text-lg font-medium;
+}

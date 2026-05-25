@@ -1,0 +1,339 @@
+%-------------------------
+% Resume in Latex
+% Author : Jonathan Chong
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+\setlength{\footskip}{4.08003pt}
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-9pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small\textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%% SECTION EXAMPLE %%%%%%%%
+% \section{section name}
+  % \resumeSubHeadingListStart
+  % \resumeSubheading
+  %   {job title}{date}
+  %   {company}{location}
+  %       \resumeItemListStart
+  %       \resumeItem{item 1}
+  %       \resumeItem{item 2}
+  %       \resumeItem{item 3}
+  %       \resumeItemListEnd
+  % \resumeSubheading
+  %   {job title}{date}
+  %   {company}{location}
+  %       \resumeItemListStart
+  %       \resumeItem{item 1}
+  %       \resumeItem{item 2}
+  %       \resumeItem{item 3}
+  %       \resumeItemListEnd
+  %   \resumeSubHeadingListEnd
+
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------HEADING----------
+\begin{document}
+\begin{center}
+    \textbf{\Huge \scshape Jonathan Chong} \\ \vspace{3pt}
+    \small
+    \underline{\faIcon{mobile-alt} 403-472-2006} $|$
+    \href{mailto:jonathanchongyyc@gmail.com}{\underline{\faIcon{envelope} jonathanchongyyc@gmail.com}} $|$
+    \href{https://linkedin.com/in/jonathanchongyyc}{\underline{\faIcon{linkedin} linkedin.com/in/jonathanchongyyc}} $|$
+    \href{https://github.com/wcjona}{\underline{\faIcon{github} github.com/wcjona}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Calgary}{Graduated May 2025}
+      {Bachelor of Science in Software Engineering, Minor in Biomedical Engineering}{\textbf{GPA:} 3.8/4.0}
+  \resumeSubHeadingListEnd
+
+ %-----------SKILLS-----------
+ \section{Skills}
+ \vspace{4pt}\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Technical Skills}{: Artificial Intelligence, Full Stack Web Development, Software Architecture, Computer Architecture, Database Architecture} \\
+     \textbf{Programming Languages}{: Python, C++, C, Java, SQL, JavaScript, TypeScript, HTML, CSS} \\
+     \textbf{Libraries/Frameworks}{: React, Node.js, Flask, Express, Axios, TensorFlow, Scikit-learn, LangChain} \\
+     \textbf{Developer Tools}{: Git, GitHub, Gerrit, Vim, VSCode, Docker, AWS, Microsoft Azure, Ansible, Jira, Linux} \\
+    }}
+ \end{itemize}
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Software Development Engineer Intern}{May 2023 -- August 2024}
+      {Advanced Micro Devices Inc. (AMD)}{Toronto, Ontario}
+        \resumeItemListStart
+            \small
+            \resumeItem{
+                Architected a \textbf{centralized database} consolidating data from critical internal tools and trained a model to \textbf{automate failure classification} with \textbf{93\% accuracy} using \textbf{SQL} and \textbf{TensorFlow}.
+            }
+            \resumeItem{
+                Deployed a \textbf{full-stack web platform} to log test failures, analyze failure rates, predict build times, and surface software defects, \textbf{eliminating dozens of hours} of manual triage using \textbf{Snowflake, SQL, React, Flask, and Ansible}.
+            }
+            \resumeItem{
+                Engineered a \textbf{front-end UI} and \textbf{back-end search engine} that replaced a legacy workflow for over \textbf{350 engineers}, built with \textbf{SQL, Python, Flask, Axios, React, JavaScript, and MUI}.
+            }
+            \resumeItem{
+                Leveraged \textbf{Large Language Models (LLMs)} enhanced with \textbf{Retrieval Augmented Generation (RAG)} over Confluence and Jira APIs to \textbf{automate ticket creation} using \textbf{Azure OpenAI, LangChain, and Python}.
+            }
+            \resumeItem{
+                Established the \textbf{CI/CD pipeline} for over \textbf{10 CPU, GPU, and NPU products} used by \textbf{350+ engineers} through \textbf{Linux, Buildbot, and Python}.
+            }
+            \resumeItem{
+                Streamlined the \textbf{development and release process} across multiple programs by hardening a shared interface tool in \textbf{Linux and Python}, \textbf{saving hundreds of engineering hours} in troubleshooting.
+            }
+            \resumeItem{
+                Maintained and contributed to \textbf{multiple repositories} responsible for \textbf{ASIC and firmware qualification}, \textbf{IP design verification}, and \textbf{benchmarking} across \textbf{10+ GPU, CPU, and NPU programs}.
+            }
+        \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineer Intern}{Jan 2022 -- Dec 2022}
+      {Garmin Ltd.}{Calgary, Alberta}
+        \resumeItemListStart
+            \small\resumeItem{
+                Launched a \textbf{Python module} for transmitting and receiving \textbf{low-level data with embedded devices}, adopted by \textbf{50+ engineers} and integrated as a core component across \textbf{6+ repositories}.
+            }
+            \resumeItem{
+                Automated \textbf{Bluetooth Low Energy (BLE) protocol} testing between sensors and consumer products using \textbf{C++}.
+            }
+            \resumeItem{
+                Refactored a legacy test application to support modern \textbf{Android/iOS devices} and additional mobile apps using \textbf{Selenium and pytest}, increasing automated test coverage by over \textbf{60\%}.
+            }
+            \resumeItem{
+                Applied \textbf{Test Driven Development (TDD)} to build a framework for controlling modern and legacy applications via \textbf{REST APIs and Python}.
+            }
+            \resumeItem{
+                Built internal tooling, including a \textbf{mobile app and log-retrieval script}, that \textbf{eliminated hours} of repetitive work using \textbf{Kotlin, Java, and Bash}.
+            }
+        \resumeItemListEnd
+ \resumeSubheading
+    {Software Developer}{Jan 2021 -- Dec 2021}
+    {Neocycle (Startup)}{Calgary, Alberta}
+        \resumeItemListStart
+        \small\resumeItem{
+            Spearheaded a synthetic biology solution to recover rare earth elements from electronic waste, \textbf{reducing environmental impact by 80\%} and \textbf{costs by 30\%}.
+        }
+        \resumeItem{
+            Designed a \textbf{random forest model} with \textbf{nested cross-validation} to predict kinetic rate constants for a target protein-ligand interaction with \textbf{95\% accuracy}.
+        }
+        \resumeItem{
+            Engineered novel protein sequences that \textbf{improved binding affinity by 25\%} using \textbf{convolutional neural networks (CNNs)} and additional \textbf{machine learning} techniques.
+        }
+        \resumeItem{
+            Secured over \textbf{\$25,000} in startup funding through business and research competitions.
+        }
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------Projects-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+     \resumeProjectHeading
+        {Bloombot -- A Smart Garden System \textit{powered by Symend}}
+        {Sept 2024 -- April 2025}
+        \resumeItemListStart
+        \resumeItem{Designed a fully automated smart-home gardening device with pH control, enabling \textbf{automatic nutrient dosing} driven by live \textbf{sensor readings}; awarded \textbf{Best Electrical \& Software Engineering Project} by the University of Calgary.}
+        \resumeItem{Developed \textbf{embedded firmware} for the \textbf{ESP32-S3 microcontroller} in \textbf{C++} and \textbf{ESP-IDF}, implementing \textbf{sensor acquisition}, \textbf{actuator control}, and real-time \textbf{MQTT communication} with \textbf{AWS IoT Core}.}
+        \resumeItem{Shipped \textbf{cross-platform user interfaces} in \textbf{React Native} (mobile) and \textbf{React} (web) for real-time sensor monitoring, automation rule configuration, and remote actuator control.}
+        \resumeItem{Implemented \textbf{Bluetooth Low Energy (BLE) provisioning} for secure transfer of \textbf{Wi-Fi credentials} from the mobile app to the device, streamlining the user onboarding experience.}
+        \resumeItem{Architected a \textbf{serverless backend} on \textbf{AWS Lambda (Node.js)}, \textbf{DynamoDB}, and \textbf{AppSync (GraphQL)} for bi-directional device control and real-time data flow.}
+        \resumeItem{Authored \textbf{actuator drivers} for \textbf{pumps, fans, and lighting} using \textbf{PWM} and \textbf{GPIO}, achieving sub-100\,ms response latency to automation commands.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {Rating Rager -- Data-Driven Restaurant Ranking System}{Sept 2024 -- Dec 2024}
+        \resumeItemListStart
+        \small\resumeItem{Designed a dynamic weighted ranking system for every Calgary restaurant by combining sentiment, trend, and geographic analysis with overall rating, uniqueness, and price.}
+        \resumeItem{Engineered a data pipeline against the \textbf{Google Maps API} processing \textbf{16,274 requests} to gather and refine data on all \textbf{3,940} Calgary restaurants.}
+        \resumeItem{Applied \textbf{VADER} sentiment analysis to customer reviews to produce accurate, timely sentiment scores.}
+        \resumeItem{Used clustering algorithms (\textbf{KNN} and \textbf{DBSCAN}) to analyze geographic sentiment and identify under-served areas and high-performing restaurant clusters.}
+        \resumeItem{Classified cuisine types from restaurant data via \textbf{Natural Language Inference (NLI)} with \textbf{92\% accuracy}, filling gaps in API-provided data.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {Macro Pad from Scratch}{Dec 2023 -- Jul 2024}
+        \resumeItemListStart
+        \small\resumeItem{Designed a custom PCB in \textbf{KiCad} and manufactured it via JLCPCB.}
+        \resumeItem{Programmed \textbf{firmware} for an \textbf{AVR microcontroller} in \textbf{C} using the LUFA USB library.}
+        \resumeItem{Modeled and 3D-printed custom rotary knobs using \textbf{SolidWorks} and Prusa Slicer.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {I'm Slime -- Video Game}{Sept 2022 -- Dec 2022}
+        \resumeItemListStart
+        \small\resumeItem{Developed a \textbf{Player-versus-Player (PvP)} web game in \textbf{React} on a flexible \textbf{microservices-based architecture}.}
+        \resumeItem{Built community-driven \textbf{front-end} and \textbf{back-end} features including account creation, friends list, and private/public messaging using \textbf{Firebase, React, and Axios}.}
+        \resumeItem{Implemented an in-game shop with character and profile customization using \textbf{Bootstrap, HTML, and CSS}.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {StudyHub: Connecting Students to Freelance Tutors}{Sept 2022 -- Dec 2022}
+        \resumeItemListStart
+        \small\resumeItem{Built a \textbf{full-stack} marketplace following \textbf{Model-View-Controller (MVC)} principles to connect students with tutors.}
+        \resumeItem{Developed \textbf{REST API routes} and a comprehensive database layer using \textbf{Node.js, Axios, Express.js, and SQL}.}
+        \resumeItem{Designed a user-friendly website using \textbf{HTML, CSS, JavaScript, and GitHub Pages}.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------Clubs-----------
+\section{Clubs}
+  \resumeSubHeadingListStart
+  \resumeProjectHeading
+    {Vice President of Technology -- Genetics and Genomics Club}{Sept 2020 -- Jan 2022}
+        \resumeItemListStart
+        \resumeItem{Built and maintained the club website with weekly announcements using HTML, CSS, and Bootstrap.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {Vice President -- Competitive Programming Club}{Sept 2020 -- Jan 2022}
+        \resumeItemListStart
+        \resumeItem{Created and delivered weekly lessons on data structures, algorithms, and runtime \& memory efficiency.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {President -- Calgary Developer Students Club powered by Google}{Sept 2020 -- May 2021}
+        \resumeItemListStart
+        \resumeItem{Hosted workshops on industry tools such as Firebase and Google Cloud.}
+        \resumeItem{Organized expert panels with leaders across computer science and software engineering.}
+        \resumeItem{Created networking opportunities through career fairs and info nights.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------Volunteering-----------
+\section{Volunteering}
+  \resumeSubHeadingListStart
+  \resumeProjectHeading
+    {AMD $\times$ Princess Margaret Foundation}{2023 \& 2024}
+        \resumeItemListStart
+        \resumeItem{Volunteered as a VR Specialist at Canada's FanExpo, helping raise over \textbf{\$20,000} for cancer research.}
+        \resumeItem{Represented AMD at the Call of Duty League Toronto Ultra Major, helping raise over \textbf{\$50,000} for cancer research.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {AMD $\times$ Canada Computers Esports Arena}{2023}
+        \resumeItemListStart
+        \resumeItem{Hosted and served as primary commentator for the Fortnite tournament broadcasted on the AMD Twitch channel with a \textbf{\$5,000} prize pool.}
+        \resumeItemListEnd
+  \resumeProjectHeading
+    {Calgary \& Alberta Collegiate Programming Contests}{2020 \& 2021}
+        \resumeItemListStart
+        \resumeItem{Lead event coordinator, liaising with sponsors (Arcurve, Synopsys), platform provider Kattis, and the University of Calgary for logistics.}
+        \resumeItem{Authored contest problems in LaTeX with reference solutions in C++ (fastest) and Python (slowest), verified through Docker and Kattis' Linux toolkit.}
+        \resumeItem{Achieved \textbf{200+ attendees} and \textbf{\$8,000} and \textbf{\$10,000} prize pools across the two events.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------Achievements-----------
+\section{Achievements}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading {AMD Executive Spotlight Award (\$1,500)}{}
+      \resumeProjectHeading {Society of Asian Scientists \& Engineers Scholarship (\$5,000)}{}
+      \resumeProjectHeading {Schulich School of Engineering Award (\$6,000)}{}
+      \resumeProjectHeading {Jason Lang Scholarship (\$4,000)}{}
+      \resumeProjectHeading {Schulich School of Engineering Dean's List (2019-2023)}{}
+    \resumeSubHeadingListEnd
+
+%-----------Courses \& Certification-----------
+\section{Courses \& Certifications}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading {Advanced C++20 Training Course at AMD}{}
+      \resumeProjectHeading {The Complete Web Development Bootcamp on Udemy}{}
+      \resumeProjectHeading {Machine Learning A-Z: AI, Python, R on Udemy}{}
+      \resumeProjectHeading {iOS \& Swift - The Complete iOS App Development Bootcamp on Udemy}{}
+      \resumeProjectHeading {The Complete Python Pro Bootcamp on Udemy}{}
+    \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

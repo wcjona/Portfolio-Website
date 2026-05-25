@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-w: 340px;
+
+    /*
+     * Palette vars are stored as space-separated R G B so Tailwind's
+     * `rgb(var(--x) / <alpha-value>)` opacity modifiers work. Light/dark
+     * variants are both defined here; .dark redirects the active vars
+     * below. usePalette.ts overwrites both sets at runtime, and the FOUC
+     * script in index.html replays the stored values before paint.
+     */
+
+    /* --- Light variants --- */
+    --accent-about-light: 23 122 68;
+    --accent-section-light: 5 150 105;
+    --tint-section-light: 220 240 234;
+    --surface-light: 246 250 248;
+    --sidebar-light: 220 235 227;
+
+    /* --- Dark variants --- */
+    --accent-about-dark: 74 222 128;
+    --accent-section-dark: 52 211 153;
+    --tint-section-dark: 28 49 38;
+    --surface-dark: 17 24 22;
+    --sidebar-dark: 29 38 28;
+
+    /* --- Active vars (what components read) --- */
+    --accent-about: var(--accent-about-light);
+    --accent-section: var(--accent-section-light);
+    --tint-section: var(--tint-section-light);
+    --surface: var(--surface-light);
+    --sidebar: var(--sidebar-light);
+  }
+
+  .dark {
+    --accent-about: var(--accent-about-dark);
+    --accent-section: var(--accent-section-dark);
+    --tint-section: var(--tint-section-dark);
+    --surface: var(--surface-dark);
+    --sidebar: var(--sidebar-dark);
+  }
+
+  @media (min-width: 1280px) {
+    :root {
+      --sidebar-w: 480px;
+    }
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body,
+  #root {
+    @apply min-h-screen bg-surface text-ink-700 dark:text-zinc-300;
+  }
+
+  body {
+    @apply font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background-color: rgb(var(--accent-about) / 0.25);
+  }
+}
+
+@layer utilities {
+  .ink-strong {
+    @apply text-ink-900 dark:text-zinc-100;
+  }
+  .ink-body {
+    @apply text-ink-700 dark:text-zinc-300;
+  }
+  .ink-muted {
+    @apply text-ink-500 dark:text-zinc-500;
+  }
+  .ink-label {
+    @apply text-ink-600 dark:text-zinc-400;
+  }
+}
