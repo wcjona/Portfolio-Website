@@ -60,7 +60,7 @@ export default function ExperienceCard({ experience, marketSnapshot }: Props): J
             aria-expanded={showMarketSnapshot}
             aria-label={showMarketSnapshot ? "Collapse market snapshot" : "Expand market snapshot"}
             onClick={() => setShowMarketSnapshot((value) => !value)}
-            className="pf-experience-card-market-toggle inline-flex items-center gap-1.5 p-1 text-xs font-semibold uppercase tracking-wide ink-label transition-colors duration-200 hover:text-ink-900 dark:hover:text-zinc-100"
+            className="pf-experience-card-market-toggle inline-flex items-center gap-1.5 p-1 text-xs font-semibold ink-label transition-colors duration-200 hover:text-ink-900 dark:hover:text-zinc-100"
           >
             <FaCaretRight
               aria-hidden="true"
