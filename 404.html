@@ -18,14 +18,19 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     />
     <script>
-      // Apply theme + palette before paint to avoid flash of wrong colors.
+      // Apply theme + palette + font before paint to avoid flash.
       (function () {
         var root = document.documentElement;
+        root.dataset.font = "sans";
         try {
           var stored = localStorage.getItem("theme:v2");
           var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
           var theme = stored === "light" || stored === "dark" ? stored : prefersDark ? "dark" : "light";
           if (theme === "dark") root.classList.add("dark");
+        } catch (e) {}
+        try {
+          var font = localStorage.getItem("font:v1");
+          if (font === "sans" || font === "serif") root.dataset.font = font;
         } catch (e) {}
         try {
           var paletteVars = localStorage.getItem("palette-vars:v2");
@@ -40,8 +45,8 @@
         } catch (e) {}
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-BfsunpmS.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Aih9Wzmt.css">
+    <script type="module" crossorigin src="/assets/index-Cy4zuHPX.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Jt5m62Sw.css">
   </head>
   <body>
     <div id="root"></div>
