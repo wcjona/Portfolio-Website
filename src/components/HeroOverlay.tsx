@@ -1,7 +1,7 @@
 import {
   motion,
   useMotionTemplate,
-  useReducedMotion,
+  useReducedMotionConfig,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -17,7 +17,7 @@ import Typewriter from "./Typewriter";
 type Props = { children: ReactNode };
 
 export default function HeroOverlay({ children }: Props): JSX.Element {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
   const { scrollY } = useScroll();
 
   const [runway, setRunway] = useState<number>(() => window.innerHeight);

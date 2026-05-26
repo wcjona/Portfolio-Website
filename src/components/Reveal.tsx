@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotionConfig } from "framer-motion";
 import type { ReactNode } from "react";
 
 type RevealProps = {
@@ -9,7 +9,7 @@ type RevealProps = {
 };
 
 export default function Reveal({ children, delay = 0, className, as = "div" }: RevealProps): JSX.Element {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
   const MotionTag = motion[as];
 
   return (

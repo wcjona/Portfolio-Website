@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotionConfig } from "framer-motion";
 import { useEffect, useId, useRef, useState } from "react";
 import { FaCheck, FaPalette } from "react-icons/fa";
 import clsx from "clsx";
@@ -21,7 +21,7 @@ function Swatches({ palette, size = "sm" }: { palette: Palette; size?: "sm" | "m
 export default function PaletteSwitcher({ placement = "top" }: Props): JSX.Element {
   const { palette, setPaletteId, palettes } = usePalette();
   const [open, setOpen] = useState(false);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
   const containerRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
 

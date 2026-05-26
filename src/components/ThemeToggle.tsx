@@ -1,11 +1,11 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotionConfig } from "framer-motion";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useTheme } from "../hooks/useTheme";
 
 export default function ThemeToggle(): JSX.Element {
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
 
   return (
     <button

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotionConfig } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 import { profile } from "../data/profile";
@@ -88,7 +88,7 @@ const mobileHeroVariants: Variants = {
 };
 
 function MobileHero(): JSX.Element {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
   const initial = reduce ? false : "hidden";
 
   return (
@@ -122,7 +122,7 @@ function MobileHero(): JSX.Element {
 }
 
 function MobileHeader(): JSX.Element {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
   const initial = reduce ? false : "hidden";
 
   return (

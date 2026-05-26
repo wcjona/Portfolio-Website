@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotionConfig } from "framer-motion";
 import type { HeroTitle } from "../data/profile";
 
 type Phase = "typing" | "holding" | "erasing" | "paused";
@@ -21,7 +21,7 @@ export default function Typewriter({
   pauseMs = 380,
   startDelayMs = 0,
 }: Props): JSX.Element {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
   const [phase, setPhase] = useState<Phase>("typing");

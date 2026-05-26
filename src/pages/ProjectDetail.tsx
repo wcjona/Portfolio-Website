@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotionConfig } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { findProject } from "../data/projects";
@@ -10,7 +10,7 @@ import NotFound from "./NotFound";
 export default function ProjectDetail(): JSX.Element {
   const { slug } = useParams<{ slug: string }>();
   const project = findProject(slug);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
 
   if (!project) return <NotFound />;
 

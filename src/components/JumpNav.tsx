@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotionConfig } from "framer-motion";
 import clsx from "clsx";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -27,7 +27,7 @@ function scrollToSection(id: string): void {
 
 export default function JumpNav(): JSX.Element {
   const active = useActiveSection(SECTION_IDS) as SectionId;
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionConfig();
 
   return (
     <nav aria-label="In-page jump links" className="pf-jump-nav flex flex-col items-start">
