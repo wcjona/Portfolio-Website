@@ -1,9 +1,14 @@
 import { FaArrowDown } from "react-icons/fa";
 import { experiences, honors } from "../data/experience";
 import { profile } from "../data/profile";
+import { careerStockSnapshot } from "../data/careerStockSnapshot";
 import ExperienceCard from "../components/ExperienceCard";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
+
+function normalizeDateRange(value: string): string {
+  return value.replace(/\s+/g, " ").trim().toUpperCase();
+}
 
 export default function Experience(): JSX.Element {
   return (
@@ -16,7 +21,14 @@ export default function Experience(): JSX.Element {
       <div className="pf-experience-list flex flex-col items-start gap-2 self-stretch">
         {experiences.map((experience, i) => (
           <Reveal key={`${experience.company}-${experience.dateRange}`} delay={i * 0.04} className="self-stretch">
-            <ExperienceCard experience={experience} />
+            <ExperienceCard
+              experience={experience}
+              marketSnapshot={careerStockSnapshot.find(
+                (snapshot) =>
+                  snapshot.company === experience.company &&
+                  normalizeDateRange(snapshot.tenureLabel) === normalizeDateRange(experience.dateRange),
+              )}
+            />
           </Reveal>
         ))}
       </div>

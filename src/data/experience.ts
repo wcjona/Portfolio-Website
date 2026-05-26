@@ -9,6 +9,14 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
+    dateRange: "JUL 2025 - PRESENT",
+    role: "Software Development Engineer II",
+    company: "Advanced Micro Devices (AMD)",
+    companyHref: "https://www.amd.com",
+    location: "Toronto, Ontario",
+    bullets: [],
+  },
+  {
     dateRange: "MAY 2023 - AUG 2024",
     role: "Software Development Engineer Intern",
     company: "Advanced Micro Devices (AMD)",

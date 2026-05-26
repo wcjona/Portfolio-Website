@@ -9,10 +9,10 @@ export type HeroTitle = { article: "A" | "An"; word: string };
 export const profile = {
   name: "Jonathan Chong",
   greeting: "Hi, I'm",
-  role: "Software Engineer Building Reliable Systems",
+  role: "Software Development Engineer II at AMD",
   location: "Toronto, Ontario, Canada",
   blurb:
-    "I build full-stack platforms, ML systems, and embedded firmware. Recent University of Calgary Software Engineering grad (Biomed minor) with internships at AMD, Garmin, and Neocycle, shipping tools used by hundreds.",
+    "Software Development Engineer II at AMD building reliable systems across full-stack platforms, ML workflows, and embedded tooling. University of Calgary Software Engineering grad (Biomed minor) with prior internships at AMD, Garmin, and Neocycle.",
   socials: [
     { label: "GitHub", href: "https://github.com/wcjona", kind: "github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/jonathanchongyyc", kind: "linkedin" },

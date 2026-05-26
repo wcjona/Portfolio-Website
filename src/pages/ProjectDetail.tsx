@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { findProject } from "../data/projects";
 import ExternalLinkIcon from "../components/ExternalLinkIcon";
+import FontToggle from "../components/FontToggle";
 import PaletteSwitcher from "../components/PaletteSwitcher";
 import ThemeToggle from "../components/ThemeToggle";
 import NotFound from "./NotFound";
@@ -29,6 +30,7 @@ export default function ProjectDetail(): JSX.Element {
         </Link>
         <div className="pf-project-detail-actions flex items-center gap-2">
           <PaletteSwitcher placement="bottom" />
+          <FontToggle />
           <ThemeToggle />
         </div>
       </div>

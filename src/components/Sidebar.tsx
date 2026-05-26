@@ -5,6 +5,7 @@ import { profile } from "../data/profile";
 import type { SocialLink } from "../data/profile";
 import HeroOverlay from "./HeroOverlay";
 import JumpNav from "./JumpNav";
+import FontToggle from "./FontToggle";
 import PaletteSwitcher from "./PaletteSwitcher";
 import ThemeToggle from "./ThemeToggle";
 import Typewriter from "./Typewriter";
@@ -75,6 +76,7 @@ function SidebarDetails(): JSX.Element {
         </div>
         <span className="pf-sidebar-toggles ml-1 flex items-center gap-2">
           <PaletteSwitcher placement="top" />
+          <FontToggle />
           <ThemeToggle />
         </span>
       </div>
@@ -148,8 +150,9 @@ function MobileHeader(): JSX.Element {
             {profile.role}
           </motion.p>
         </div>
-        <motion.div variants={itemVariants} className="pf-mobile-header-toggles flex items-center gap-2">
+        <motion.div variants={itemVariants} className="pf-mobile-header-toggles flex flex-col items-end gap-2">
           <PaletteSwitcher placement="bottom" />
+          <FontToggle />
           <ThemeToggle />
         </motion.div>
       </div>
