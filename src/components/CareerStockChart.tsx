@@ -10,6 +10,7 @@ type Props = {
 type Point = { x: number; y: number };
 const CHART_WIDTH = 660;
 const CHART_HEIGHT = 220;
+const CHART_TOP_INSET = 20;
 
 const chartCurrencyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -40,6 +41,11 @@ function formatIsoAsLongDate(date: string): string {
   return parsed.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
 }
 
+function formatIsoAsShortDate(date: string): string {
+  const parsed = new Date(`${date}T00:00:00Z`);
+  return parsed.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+}
+
 function buildCoordinates(snapshot: CareerStockCompanySnapshot): {
   points: Point[];
   linePath: string;
@@ -49,7 +55,7 @@ function buildCoordinates(snapshot: CareerStockCompanySnapshot): {
   const height = CHART_HEIGHT;
   const left = 24;
   const right = 24;
-  const top = 28;
+  const top = CHART_TOP_INSET;
   const bottom = 30;
   const drawableW = width - left - right;
   const drawableH = height - top - bottom;
@@ -85,6 +91,9 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
   const [displayPrice, setDisplayPrice] = useState(snapshot.endPoint.close);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [pinnedIndex, setPinnedIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(() =>
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 640px)").matches : false,
+  );
 
   useEffect(() => {
     setDisplayPrice(snapshot.endPoint.close);
@@ -104,6 +113,14 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
     return () => window.clearInterval(interval);
   }, [snapshot.isLive, snapshot.endPoint.close]);
 
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 640px)");
+    const sync = (): void => setIsMobile(media.matches);
+    sync();
+    media.addEventListener("change", sync);
+    return () => media.removeEventListener("change", sync);
+  }, []);
+
   const renderedSnapshot = useMemo(() => {
     if (!snapshot.isLive || snapshot.points.length === 0) return snapshot;
     const last = snapshot.points[snapshot.points.length - 1];
@@ -117,11 +134,15 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
   const hoveredData = activeIndex === null ? null : renderedSnapshot.points[activeIndex] ?? null;
   const showTooltipBelow = hoveredPoint ? hoveredPoint.y < 52 : false;
   const tooltipOffsetY = showTooltipBelow ? 14 : -12;
-  const tooltipRectY = showTooltipBelow ? 0 : -30;
-  const tooltipDateY = showTooltipBelow ? 12 : -18;
-  const tooltipPriceY = showTooltipBelow ? 24 : -6;
-  const tooltipX = hoveredPoint ? clamp(hoveredPoint.x + 10, 100, CHART_WIDTH - 120) : 0;
-  const tooltipY = hoveredPoint ? clamp(hoveredPoint.y + tooltipOffsetY, 10, CHART_HEIGHT - 40) : 0;
+  const tooltipRectY = showTooltipBelow ? 0 : isMobile ? -44 : -34;
+  const tooltipDateY = showTooltipBelow ? (isMobile ? 17 : 14) : isMobile ? -22 : -14;
+  const tooltipPriceY = showTooltipBelow ? (isMobile ? 39 : 29) : isMobile ? 4 : 2;
+  const tooltipWidth = isMobile ? 104 : 96;
+  const tooltipHeight = isMobile ? 56 : 40;
+  const tooltipX = hoveredPoint ? clamp(hoveredPoint.x + 10, 100, CHART_WIDTH - (tooltipWidth + 8)) : 0;
+  const minTooltipY = showTooltipBelow ? 10 : Math.abs(tooltipRectY) + 6;
+  const maxTooltipY = showTooltipBelow ? CHART_HEIGHT - tooltipHeight - 8 : CHART_HEIGHT - 18;
+  const tooltipY = hoveredPoint ? clamp(hoveredPoint.y + tooltipOffsetY, minTooltipY, maxTooltipY) : 0;
 
   const getNearestIndex = (event: ReactPointerEvent<SVGSVGElement>): number | null => {
     const svgRect = event.currentTarget.getBoundingClientRect();
@@ -185,7 +206,13 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
     : "Demonstrated resilience in adverse market environments.";
 
   return (
-    <article className={compact ? "pf-career-stock-card" : "pf-career-stock-card rounded-lg border border-ink-500/15 p-4 dark:border-zinc-700"}>
+    <article
+      className={
+        compact
+          ? "pf-career-stock-card overflow-x-hidden"
+          : "pf-career-stock-card rounded-lg border border-ink-500/15 p-4 overflow-x-hidden dark:border-zinc-700"
+      }
+    >
       {compact ? null : (
         <div className="pf-career-stock-header mb-4">
           <h4 className="pf-career-stock-title text-base font-semibold leading-5 ink-strong">
@@ -220,7 +247,7 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
         </div>
       </div>
 
-      <div className="pf-career-stock-plot mt-4">
+      <div className="pf-career-stock-plot mt-4 overflow-hidden">
         <svg
           viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}
           role="img"
@@ -248,7 +275,7 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
               <line
                 x1={hoveredPoint.x}
                 x2={hoveredPoint.x}
-                y1="28"
+                y1={CHART_TOP_INSET}
                 y2="190"
                 stroke="rgb(var(--accent-section) / 0.35)"
                 strokeDasharray="4 4"
@@ -258,16 +285,27 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
                 <rect
                   x="0"
                   y={tooltipRectY}
-                  width="116"
-                  height="34"
+                  width={tooltipWidth}
+                  height={tooltipHeight}
                   rx="6"
                   fill="rgb(var(--surface) / 0.96)"
                   stroke="rgb(var(--accent-section) / 0.35)"
                 />
-                <text x="8" y={tooltipDateY} fontSize="9" fill="rgb(var(--accent-section) / 1)">
-                  {formatIsoAsLongDate(hoveredData.date)}
+                <text
+                  x="7"
+                  y={tooltipDateY}
+                  fontSize={isMobile ? 16 : 10}
+                  fill="rgb(var(--accent-section) / 1)"
+                >
+                  {isMobile ? formatIsoAsShortDate(hoveredData.date) : formatIsoAsLongDate(hoveredData.date)}
                 </text>
-                <text x="8" y={tooltipPriceY} fontSize="10" fontWeight="600" fill="currentColor">
+                <text
+                  x="7"
+                  y={tooltipPriceY}
+                  fontSize={isMobile ? 22 : 12}
+                  fontWeight="700"
+                  fill="currentColor"
+                >
                   {chartCurrencyFormatter.format(hoveredData.close)}
                 </text>
               </g>
@@ -275,14 +313,14 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
           ) : null}
         </svg>
 
-        <div className="pf-career-stock-axis mt-2 flex items-center justify-between gap-2 text-xs ink-label">
-          <span>
-            <span className="font-semibold">When I started:</span> {formatIsoAsLongDate(snapshot.startPoint.date)}
-          </span>
-          <span className="hidden text-[11px] text-center sm:block">Hover or tap to inspect daily prices</span>
-          <span className="text-right">
+        <div className="pf-career-stock-axis mt-2 grid grid-cols-2 gap-2 text-[12px] sm:text-xs ink-label">
+          <div className="min-w-0 leading-tight">
+            <span className="font-semibold">Start date:</span> {formatIsoAsLongDate(snapshot.startPoint.date)}
+          </div>
+          <div className="min-w-0 text-right leading-tight">
             <span className="font-semibold">End date:</span> {formatIsoAsLongDate(snapshot.endPoint.date)}
-          </span>
+          </div>
+          <div className="col-span-2 hidden text-[11px] text-center sm:block">Hover or tap to inspect daily prices</div>
         </div>
       </div>
 
