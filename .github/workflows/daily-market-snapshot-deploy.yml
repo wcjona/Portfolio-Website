@@ -2,8 +2,9 @@ name: Daily market snapshot deploy
 
 on:
   schedule:
-    # Runs daily at 09:17 UTC.
-    - cron: "17 9 * * *"
+    # Runs weekdays twice daily: midday and after US market close.
+    - cron: "0 15 * * 1-5"
+    - cron: "30 22 * * 1-5"
   workflow_dispatch:
 
 permissions:

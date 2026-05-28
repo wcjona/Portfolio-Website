@@ -201,6 +201,7 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
   const marketCapPositive = marketCapDelta >= 0;
   const gradientId = `career-stock-gradient-${snapshot.id}`;
   const valueBroughtLabel = `Individual total value brought: ${formatSignedCurrency(marketCapDelta, true)}`;
+  const endDateLabel = snapshot.isLive ? "Present" : "End date";
   const attributionLine = marketCapPositive
     ? "Drove measurable business impact."
     : "Demonstrated resilience in adverse market environments.";
@@ -318,7 +319,7 @@ export default function CareerStockChart({ snapshot, compact = false }: Props): 
             <span className="font-semibold">Start date:</span> {formatIsoAsLongDate(snapshot.startPoint.date)}
           </div>
           <div className="min-w-0 text-right leading-tight">
-            <span className="font-semibold">End date:</span> {formatIsoAsLongDate(snapshot.endPoint.date)}
+            <span className="font-semibold">{endDateLabel}:</span> {formatIsoAsLongDate(snapshot.endPoint.date)}
           </div>
           <div className="col-span-2 hidden text-[11px] text-center sm:block">Hover or tap to inspect daily prices</div>
         </div>
